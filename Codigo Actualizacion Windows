@@ -1,0 +1,47 @@
+1. La trilogía completa de DISM (Paso a paso)
+Mucha gente va directo al /RestoreHealth, pero DISM tiene un proceso de tres pasos para no trabajar de más si no es necesario:
+
+Paso 1: Verificar si hay daños (Rápido)
+
+DOS
+DISM /Online /Cleanup-Image /CheckHealth
+Solo te dice en segundos si el sistema operativo ha sido marcado como dañado.
+
+Paso 2: Escaneo profundo
+
+DOS
+DISM /Online /Cleanup-Image /ScanHealth
+Examina minuciosamente la imagen de Windows en busca de errores, pero no repara nada todavía. Tarda unos minutos.
+
+Paso 3: La reparación (El que ya conocías)
+
+DOS
+DISM /Online /Cleanup-Image /RestoreHealth
+Este es el que descarga los archivos limpios y repara el daño.
+
+2. El comando hermano de SFC (Verificación silenciosa)
+El comando sfc /scannow repara automáticamente, pero si alguna vez solo quieres saber si hay problemas sin que toque nada, puedes usar:
+
+DOS
+sfc /verifyonly
+Analiza el sistema y te dice si encuentra fallos, pero los deja intactos.
+
+3. Los otros comandos esenciales de Windows
+Si estás haciendo un mantenimiento a fondo del ordenador, hay otros dos comandos que suelen ir de la mano con los que ya conoces:
+
+A. CHKDSK (Para la salud física del disco)
+Mientras SFC y DISM arreglan el software (Windows), chkdsk arregla el hardware (los sectores corruptos de tu disco duro o SSD). El comando extendido más común es:
+
+DOS
+chkdsk C: /f /r
+/f: Corrige los errores en el disco.
+
+/r: Encuentra sectores defectuosos y recupera la información que sea legible.
+(Nota: Si lo haces con el disco C:, te pedirá reiniciar el PC para poder analizarlo antes de que arranque Windows).
+
+B. WSRESET (Para la tienda de Windows)
+A veces el sistema va bien, pero lo que falla son las aplicaciones o la propia tienda de Windows (Microsoft Store) que no abre o no actualiza. Este comando mágico la reinicia:
+
+DOS
+wsreset.exe
+Abre una ventana negra vacía durante unos segundos y luego abre la tienda limpia como el primer día.
