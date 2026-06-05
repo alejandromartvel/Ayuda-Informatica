@@ -1,12 +1,11 @@
-# 🛠️ Manual de Mantenimiento y Reparación de Windows
+🛠️ Manual de Mantenimiento y Reparación de Windows
+1. La trilogía completa de DISM (Paso a paso)
+Mucha gente va directo al /RestoreHealth, pero DISM tiene un proceso de tres pasos para no trabajar de más si no es necesario:
 
-## 1. La trilogía completa de DISM (Paso a paso)
-Mucha gente va directo al `/RestoreHealth`, pero **DISM** tiene un proceso de tres pasos para no trabajar de más si no es necesario:
-
-### Paso 1: Verificar si hay daños (Rápido)
+Paso 1: Verificar si hay daños (Rápido)
 Solo te dice en segundos si el sistema operativo ha sido marcado como dañado.
 
-```cmd
+DOS
 DISM /Online /Cleanup-Image /CheckHealth
 Paso 2: Escaneo profundo
 Examina minuciosamente la imagen de Windows en busca de errores, pero no repara nada todavía. Tarda unos minutos.
@@ -46,7 +45,4 @@ DOS
 wsreset.exe
 Al ejecutarlo, se abrirá una ventana de comandos negra y vacía durante unos segundos. No la cierres; cuando termine, se cerrará sola y abrirá la tienda de Windows completamente reiniciada.
 
-
-3. Baja, haz clic en el botón verde **Commit changes** para guardar.
-
-¡Prueba a pegarlo así! Verás que ahora cada comando se ganará su propia "caja de comandos" oscura e independiente, ideal para que cualquiera la copie con un solo clic.
+Al guardarlo y mirar la pestaña Preview, verás que cada comando tiene su propia caja gris y los títulos quedan totalmente libres y limpios. ¡Ya lo tienes!
